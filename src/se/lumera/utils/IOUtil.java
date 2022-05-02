@@ -1,6 +1,5 @@
 package se.lumera.utils;
 
-import org.jetbrains.annotations.NotNull;
 import se.lumera.model.BetalningsService;
 import se.lumera.model.InbetalningsTjansten;
 
@@ -29,7 +28,7 @@ public class IOUtil {
      * @param path - path to Payment-file
      * @return fullFile - Hashmap holding Posts
      */
-    public HashMap<String, Object> buildObjectFromFile(@NotNull Path path) {
+    public HashMap<String, Object> buildObjectFromFile(Path path) {
 
         // Map holds full file as object
         HashMap<String, Object> fullFile = new HashMap<>();
@@ -130,18 +129,18 @@ public class IOUtil {
     /**
      * Logs Payment-posts to "/processed"
      *
-     * @param file     - confirmed & validated payment-file
-     * @param fileData - [fileName, fileType]
+     * @param file          - confirmed & validated payment-file
+     * @param fileData      - [fileName, fileType]
      * @param validPayment- total payment = individual payments
      */
     public void logConfirmedPayment(HashMap<String, Object> file, String[] fileData, boolean validPayment) {
 
         String confirmedPayments = "src/se/lumera/processed/";
 
-        if (validPayment){
+        if (validPayment) {
             System.out.println("Payment processed without any issues: See '/processed/confirmed_payment'");
             confirmedPayments += "/confirmed_payments";
-        }else {
+        } else {
             confirmedPayments += "/failed_payments";
         }
 
